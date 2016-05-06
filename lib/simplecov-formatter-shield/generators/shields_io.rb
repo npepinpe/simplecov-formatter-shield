@@ -32,7 +32,7 @@ module SimpleCov
           private :generate!
 
           def build_uri
-            parts = [@options.text, @options.status, @options.color].map { |part| CGI.encode(part.to_s) }
+            parts = [@options.text, @options.status, @options.color].map { |part| CGI.escape(part.to_s) }
             path = "/#{PATH}/#{parts.join('-')}.#{EXTENSION}"
             return URI::HTTPS.build(host: HOST, path: path, query: "style=#{STYLE}")
           end
