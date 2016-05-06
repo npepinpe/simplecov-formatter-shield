@@ -1,0 +1,66 @@
+AllCops:
+  TargetRubyVersion: 2.3
+
+Documentation:
+  Enabled: false
+
+Metrics/LineLength:
+  Max: 200
+
+Metrics/MethodLength:
+  Max: 40
+
+Metrics/ModuleLength:
+  Max: 500
+
+Metrics/AbcSize:
+  Max: 50
+
+Metrics/CyclomaticComplexity:
+  Max: 12
+
+Metrics/PerceivedComplexity:
+  Max: 13
+
+Style/RedundantReturn:
+  Enabled: false
+
+Style/GuardClause:
+  Enabled: false
+
+Style/IndentHash:
+  EnforcedStyle: consistent
+
+Metrics/ClassLength:
+  Max: 200
+
+Style/RedundantSelf:
+  Enabled: false
+
+Style/NegatedIf:
+  Enabled: false
+
+Style/DefWithParentheses:
+  Enabled: false
+
+Style/MultilineMethodCallIndentation:
+  EnforcedStyle: indented
+
+Style/AlignParameters:
+  EnforcedStyle: with_fixed_indentation
+
+Style/SingleLineBlockParams:
+  Enabled: false
+
+Style/FrozenStringLiteralComment:
+  Enabled: false
+
+Lint/EndAlignment:
+  AlignWith: variable
+
+CaseIndentation:
+  IndentWhenRelativeTo: end
+  IndentOneStep: false
+
+Style/FrozenStringLiteralComment:
+  Enabled: false
