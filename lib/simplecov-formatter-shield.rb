@@ -3,6 +3,16 @@ require 'simplecov-formatter-shield/generators'
 module SimpleCov
   module Formatter
     class ShieldFormatter
+      class << self
+        def filename
+          return @filename ||= 'shield.png'
+        end
+
+        def filename=(filename)
+          @filename = filename
+        end
+      end
+
       TEXT = 'coverage'.freeze
       Options = Struct.new(:text, :color, :status)
 
@@ -25,7 +35,7 @@ module SimpleCov
       private :write
 
       def output_path
-        return File.join(SimpleCov.coverage_path, 'shield.png')
+        return File.join(SimpleCov.coverage_path, self.class.filename)
       end
       private :output_path
 
