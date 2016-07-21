@@ -5,7 +5,7 @@ module SimpleCov
     class ShieldFormatter
       module Generators
         # TODO: Make configurable
-        class ShieldsIO < StandardError
+        class ShieldsIO
           HOST = 'img.shields.io'.freeze
           PATH = 'badge'.freeze
           EXTENSION = 'png'.freeze

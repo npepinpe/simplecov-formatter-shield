@@ -1,5 +1,3 @@
-require 'simplecov-formatter-shield/generators'
-
 module SimpleCov
   module Formatter
     class ShieldFormatter
@@ -10,6 +8,29 @@ module SimpleCov
 
         def filename=(filename)
           @filename = filename
+        end
+
+        def generator
+          self.generator = :shields_io if @generator.nil?
+          return @generator
+        end
+
+        def generator=(generator)
+          @generator = case generator
+          when :svg
+            require 'simplecov-formatter-shield/generators/svg'
+            SimpleCov::Formatter::ShieldFormatter::Generators::Svg
+          when :png
+            require 'simplecov-formatter-shield/generators/png'
+            SimpleCov::Formatter::ShieldFormatter::Generators::Png
+          when :shields_io
+            require 'simplecov-formatter-shield/generators/shield_io'
+            SimpleCov::Formatter::ShieldFormatter::Generators::ShieldsIO
+          else
+            Logger.warn("Unknown generator #{generator}; pick one of: :svg, :png, :shields_io")
+          end
+
+          return @generator
         end
       end
 
@@ -63,7 +84,7 @@ module SimpleCov
       private :status
 
       def image(options)
-        generator = Generators::ShieldsIO.new(options)
+        generator = self.class.generator.new(options)
         return generator.generate
       end
       private :image

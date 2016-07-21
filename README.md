@@ -2,6 +2,21 @@
 
 SimpleCov formatter to generate status shields for your reports. Although one already existed, the idea was to create one with as little dependencies as possible, and eventually more than one backend (i.e. not strictly dependent on shields.io).
 
+## Dependencies
+
+If you're going to use the PNG generator, you'll need to install the following: ghostscript, librsvg, imagemagick
+
+If you're on OSX, you can use homebrew to install all dependencies:
+
+```
+brew install ghostscript
+brew install librsvg
+brew install imagemagick --with-librsvg
+```
+
+Ghostscript installs the required fonts, otherwise converting from SVG to PNG would generate errors. Using librsvg will
+convert SVGs to PNGs more accurately.
+
 ## Installation
 
 Add this line to your application's Gemfile:
