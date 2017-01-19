@@ -24,7 +24,7 @@ module SimpleCov
             require 'simplecov-formatter-shield/generators/png'
             SimpleCov::Formatter::ShieldFormatter::Generators::Png
           when :shields_io
-            require 'simplecov-formatter-shield/generators/shield_io'
+            require 'simplecov-formatter-shield/generators/shields_io'
             SimpleCov::Formatter::ShieldFormatter::Generators::ShieldsIO
           else
             Logger.warn("Unknown generator #{generator}; pick one of: :svg, :png, :shields_io")
